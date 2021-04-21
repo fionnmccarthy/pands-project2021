@@ -21,6 +21,7 @@ print(irisdata.describe()) # descibe shows count, mean, standard deviation, mini
 
 print(irisdata.describe(include=['object', 'bool'])) # shows us statistics on non-numerical values [2]
 
+print(irisdata["class"].value_counts()) # number of samples for each type of iris flower
 
 iris_virginica = irisdata.groupby(['class']).describe() # [3] group data by flower class and summarize
 print(iris_virginica)
@@ -31,3 +32,5 @@ print(iris_virginica)
 # https://datahub.io/machine-learning/iris data set source on 17/04/2021
 # https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas [2] pandas 19/04/2021
 # https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/ [3] 20/04/2021
+# https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d [4] 21/04/2021
+# https://medium.com/@Nivitus./iris-flower-classification-machine-learning-d4e337140fa4 [5] image source 21/04/2021

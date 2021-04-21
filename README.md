@@ -6,6 +6,7 @@
 ## Overview ##
 
 This is the repository for the Programming and Scripting 2021 project. The aim of this project is to investigate how python can be utilized in order to carry out data analysis on the Fisher's Iris data set **[[1](https://datahub.io/machine-learning/iris)]**. 
+![xplotoutput](iris_flowers.png) Source of Image **[[5](https://medium.com/@Nivitus./iris-flower-classification-machine-learning-d4e337140fa4)]**
 
 ---
 ## Background Research of Fisher's Data Set ##
