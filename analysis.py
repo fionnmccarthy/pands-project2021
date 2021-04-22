@@ -23,10 +23,17 @@ print(irisdata.describe(include=['object', 'bool'])) # shows us statistics on no
 
 print(irisdata["class"].value_counts()) # number of samples for each type of iris flower
 
-iris_virginica = irisdata.groupby(['class']).describe() # [3] group data by flower class and summarize
-print(iris_virginica)
-# iris_sepalwidth = irisdata.groupby(['class'])[['sepalwidth']].describe() 
+iris_grouped_by_class = irisdata.groupby(['class']).describe() # [3] group data by flower class and summarize
+print(iris_grouped_by_class)
 
+iris_sepallength = irisdata.groupby(['class'])[['sepallength']].describe()
+print(iris_sepallength)
+iris_sepalwidth = irisdata.groupby(['class'])[['sepalwidth']].describe()
+print(iris_sepalwidth)
+iris_petallength = irisdata.groupby(['class'])[['petallength']].describe()
+print(iris_petallength)
+iris_petalwidth = irisdata.groupby(['class'])[['petalwidth']].describe()
+print(iris_petalwidth)
 #print(irisdata)
 
 # https://datahub.io/machine-learning/iris data set source on 17/04/2021
