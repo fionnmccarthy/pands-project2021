@@ -32,6 +32,10 @@ In the Iris dataset there was a total of 150 records on a species of iris flower
 ---
 ## References ##
 1. https://datahub.io/machine-learning/iris data set source 17/04/2021
+2. https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas [2] pandas 19/04/2021
+3. https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/ [3] 20/04/2021
+4. https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d [4] 21/04/2021
+5. https://medium.com/@Nivitus./iris-flower-classification-machine-learning-d4e337140fa4 [5] image source 21/04/2021
 6. https://www.jstor.org/stable/2394164?origin=crossref&seq=1 Who collated the data 17/04/2021
 7. https://en.wikipedia.org/wiki/Ronald_Fisher Ronald Fisher 17/04/2021
 8. https://en.wikipedia.org/wiki/Iris_flower_data_set Iris Dataset 17/04/2021
