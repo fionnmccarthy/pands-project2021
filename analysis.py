@@ -41,3 +41,5 @@ print(iris_petalwidth)
 # https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/ [3] 20/04/2021
 # https://medium.com/@avulurivenkatasaireddy/exploratory-data-analysis-of-iris-data-set-using-python-823e54110d2d [4] 21/04/2021
 # https://medium.com/@Nivitus./iris-flower-classification-machine-learning-d4e337140fa4 [5] image source 21/04/2021
+# https://www.jstor.org/stable/2394164?origin=crossref&seq=1 [6] Who collated the data 17/04/2021 
+# https://en.wikipedia.org/wiki/Ronald_Fisher [7]
