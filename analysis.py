@@ -4,7 +4,9 @@
 # Author: Fionn McCarthy - G00301126.
 
 import numpy as np # wused for working with arrays 
-import pandas as pd # used for importing data for data analysis
+import pandas as pd # used for importing data for data analysis and manipulating data
+import matplotlib.pyplot as plt # used for data visualisation and plotting
+import seaborn as sns # used for visualisations and ivestigating random distributions
 
 irisdata = pd.read_csv('iris_data.csv')
 pd.set_option("display.precision",2) # set figures so be returned to two decimal places
@@ -36,6 +38,28 @@ print(irisdata.groupby(['class']).describe(), file = iris_summary_file) # [3] gr
 #iris_petalwidth = irisdata.groupby(['class'])[['petalwidth']].describe()
 #print(iris_petalwidth)
 
+font1 = {'family':'serif','color':'darkblue','size':15} 
+font2 = {'family':'serif','color':'darkred','size':12} 
+
+
+#For plotting the data I will group it into each flower class
+iris_virginica = irisdata[irisdata["class"] == "Iris-virginica"] # [12]
+iris_versicolor = irisdata[irisdata["class"] == "Iris-versicolor"] # [12]
+iris_setosa = irisdata[irisdata["class"] == "Iris-setosa"]  # [12]
+
+# Histograms of Data
+# https://datavizpyr.com/overlapping-histograms-with-matplotlib-in-python/ [13]
+#sepal_length_histogram, axes = plt.subplots(figsize=(10,8))
+plt.hist(iris_virginica['sepallength'], alpha=0.5, label = "Iris virginica")
+plt.hist(iris_versicolor['sepallength'], alpha=0.5, label = "Iris versicolor")
+plt.hist(iris_setosa['sepallength'], alpha=0.5, label = "Iris setosa")
+plt.xlabel("Sepal Length (cm)", fontdict = font2)
+plt.ylabel("Frequency", fontdict = font2)
+plt.grid(color = 'grey', ls = '--', lw = 0.5) 
+plt.legend(loc='upper right')
+plt.savefig("sepal_length_histogram")
+
+
 # https://datahub.io/machine-learning/iris data set source on 17/04/2021
 # https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas [2] pandas 19/04/2021
 # https://www.earthdatascience.org/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/ [3] 20/04/2021
@@ -47,3 +71,5 @@ print(irisdata.groupby(['class']).describe(), file = iris_summary_file) # [3] gr
 # https://www.w3schools.com/python/numpy/numpy_intro.asp numpy 17/04/2021 [9]
 # https://www.activestate.com/resources/quick-reads/what-is-matplotlib-in-python-how-to-use-it-for-plotting/ matplotlib [10] 17/04/2021
 # https://seaborn.pydata.org/ seaborn [11] 17/04/2021
+# https://pandas.pydata.org/docs/getting_started/intro_tutorials/03_subset_data.html grouping the variables [12] 24/04/2021
+# https://datavizpyr.com/overlapping-histograms-with-matplotlib-in-python/  [13]
