@@ -9,22 +9,23 @@ import pandas as pd # used for importing data for data analysis
 irisdata = pd.read_csv('iris_data.csv')
 pd.set_option("display.precision",2) # set figures so be returned to two decimal places
 
-iris_head = irisdata.head() # first 5 lines of the data [2]
-
-iris_shape = irisdata.shape # number rows and colums in the data [2]
-
-iris_columns = irisdata.columns # printing out the column names  [2]
-
-iris_info = irisdata.info() # this prints out general info about the data [2]
-
-iris_description = irisdata.describe() # descibe shows count, mean, standard deviation, minimum, median, interquartile range [2]
-
-print(irisdata.describe(include=['object', 'bool'])) # shows us statistics on non-numerical values [2]
-
-print(irisdata["class"].value_counts()) # number of samples for each type of iris flower
-
-iris_grouped_by_class = irisdata.groupby(['class']).describe() # [3] group data by flower class and summarize
-#print(iris_grouped_by_class)
+iris_summary_file = open("iris_summary.txt","w") # Opened and create dtext file iris_summary.txt for writing 
+print("This file is displaying the summary statistics for the Iris dataset.", file = iris_summary_file)
+print ("\n", file = iris_summary_file) #line break
+print("Below shows how the Fisher's Iris dataset looks:", file = iris_summary_file)
+print(irisdata, file = iris_summary_file)
+print ("\n", file = iris_summary_file) #line break
+print("The describe() function shows the summary statistics of the numeric data below:", file = iris_summary_file)
+print(irisdata.describe(), file = iris_summary_file) # descibe shows count, mean, standard deviation, minimum, median, interquartile range [2]
+print ("\n", file = iris_summary_file) #line break
+print("The statistics on the non-numeric (flower class) data can be seen below:", file = iris_summary_file)
+print(irisdata.describe(include=['object', 'bool']), file = iris_summary_file) # shows us statistics on non-numerical values [2]
+print ("\n", file = iris_summary_file) #line break
+print("The number of records for each class can be seen below:", file = iris_summary_file)
+print(irisdata['class'].value_counts(), file = iris_summary_file) # number of samples for each type of iris flower
+print ("\n", file = iris_summary_file) #line break
+print("Below shows a summary of each of the variables grouped by the flower class:", file = iris_summary_file)
+print(irisdata.groupby(['class']).describe(), file = iris_summary_file) # [3] group data by flower class and summarize
 
 #iris_sepallength = irisdata.groupby(['class'])[['sepallength']].describe()
 #print(iris_sepallength)
@@ -34,10 +35,6 @@ iris_grouped_by_class = irisdata.groupby(['class']).describe() # [3] group data 
 #print(iris_petallength)
 #iris_petalwidth = irisdata.groupby(['class'])[['petalwidth']].describe()
 #print(iris_petalwidth)
-
-
-iris_summary_file = open("iris_summary.txt","w")
-print("This file is displaying the summary statistics for the Iris dataset", file = iris_summary_file)
 
 # https://datahub.io/machine-learning/iris data set source on 17/04/2021
 # https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas [2] pandas 19/04/2021
