@@ -29,14 +29,6 @@ print ("\n", file = iris_summary_file) #line break
 print("Below shows a summary of each of the variables grouped by the flower class:", file = iris_summary_file)
 print(irisdata.groupby(['class']).describe(), file = iris_summary_file) # [3] group data by flower class and summarize
 
-#iris_sepallength = irisdata.groupby(['class'])[['sepallength']].describe()
-#print(iris_sepallength)
-#iris_sepalwidth = irisdata.groupby(['class'])[['sepalwidth']].describe()
-#print(iris_sepalwidth)
-#iris_petallength = irisdata.groupby(['class'])[['petallength']].describe()
-#print(iris_petallength)
-#iris_petalwidth = irisdata.groupby(['class'])[['petalwidth']].describe()
-#print(iris_petalwidth)
 
 font1 = {'family':'serif','color':'darkblue','size':15} 
 font2 = {'family':'serif','color':'darkred','size':12} 
@@ -50,14 +42,29 @@ iris_setosa = irisdata[irisdata["class"] == "Iris-setosa"]  # [12]
 # Histograms of Data
 # https://datavizpyr.com/overlapping-histograms-with-matplotlib-in-python/ [13]
 #sepal_length_histogram, axes = plt.subplots(figsize=(10,8))
-plt.hist(iris_virginica['sepallength'], alpha=0.5, label = "Iris virginica")
-plt.hist(iris_versicolor['sepallength'], alpha=0.5, label = "Iris versicolor")
-plt.hist(iris_setosa['sepallength'], alpha=0.5, label = "Iris setosa")
-plt.xlabel("Sepal Length (cm)", fontdict = font2)
-plt.ylabel("Frequency", fontdict = font2)
-plt.grid(color = 'grey', ls = '--', lw = 0.5) 
-plt.legend(loc='upper right')
-plt.savefig("sepal_length_histogram")
+def histogram_sepal_length():
+    plt.hist(iris_virginica['sepallength'], alpha=0.5, label = "Iris virginica")
+    plt.hist(iris_versicolor['sepallength'], alpha=0.5, label = "Iris versicolor")
+    plt.hist(iris_setosa['sepallength'], alpha=0.5, label = "Iris setosa")
+    plt.xlabel("Sepal Length (cm)", fontdict = font2)
+    plt.ylabel("Frequency", fontdict = font2)
+    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
+    plt.legend(loc='upper right')
+    plt.savefig("sepal_length_histogram")
+
+histogram_sepal_length()    
+
+def histogram_sepal_length2():
+    sns.histplot(iris_virginica['sepallength'], label = "Iris virginica", color = "red")
+    sns.histplot(iris_versicolor['sepallength'], label = "Iris versicolor", color = "blue")
+    sns.histplot(iris_setosa['sepallength'], label = "Iris setosa", color = "green")
+    plt.xlabel("Sepal Length (cm)", fontdict = font2)
+    plt.ylabel("Frequency", fontdict = font2)
+    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
+    plt.legend(loc='upper right')
+    plt.savefig("sepal_length_histogram_2")
+histogram_sepal_length2()
+#sns.histplot(data=penguins, x="flipper_length_mm", hue="species")
 
 
 # https://datahub.io/machine-learning/iris data set source on 17/04/2021
