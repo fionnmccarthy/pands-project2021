@@ -39,33 +39,62 @@ iris_virginica = irisdata[irisdata["class"] == "Iris-virginica"] # [12]
 iris_versicolor = irisdata[irisdata["class"] == "Iris-versicolor"] # [12]
 iris_setosa = irisdata[irisdata["class"] == "Iris-setosa"]  # [12]
 
+sns.set(style="darkgrid") # sns.set_theme sts the backround colour of the grid
 # Histograms of Data
 # https://datavizpyr.com/overlapping-histograms-with-matplotlib-in-python/ [13]
 #sepal_length_histogram, axes = plt.subplots(figsize=(10,8))
 def histogram_sepal_length():
-    plt.hist(iris_virginica['sepallength'], alpha=0.5, label = "Iris virginica")
-    plt.hist(iris_versicolor['sepallength'], alpha=0.5, label = "Iris versicolor")
-    plt.hist(iris_setosa['sepallength'], alpha=0.5, label = "Iris setosa")
+    sns.histplot(data = iris_virginica['sepallength'], kde = False, label = 'Iris virginica', color = 'red') # https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn [14]
+    sns.histplot(data = iris_versicolor['sepallength'], kde = False, label = 'Iris versicolor', color = 'skyblue')
+    sns.histplot(data = iris_setosa['sepallength'],  kde = False, label = 'Iris setosa', color = 'yellow')
     plt.xlabel("Sepal Length (cm)", fontdict = font2)
     plt.ylabel("Frequency", fontdict = font2)
+    plt.title("Histogram Plot of Sepal Length by Flower Species", fontdict = font1) 
     plt.grid(color = 'grey', ls = '--', lw = 0.5) 
     plt.legend(loc='upper right')
     plt.savefig("sepal_length_histogram")
+    plt.show()
 
-histogram_sepal_length()    
-
-def histogram_sepal_length2():
-    sns.histplot(iris_virginica['sepallength'], label = "Iris virginica", color = "red")
-    sns.histplot(iris_versicolor['sepallength'], label = "Iris versicolor", color = "blue")
-    sns.histplot(iris_setosa['sepallength'], label = "Iris setosa", color = "green")
-    plt.xlabel("Sepal Length (cm)", fontdict = font2)
+def histogram_sepal_width():
+    sns.histplot(data = iris_virginica['sepalwidth'], kde = False, label = 'Iris virginica', color = 'red') # https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn [14]
+    sns.histplot(data = iris_versicolor['sepalwidth'], kde = False, label = 'Iris versicolor', color = 'skyblue')
+    sns.histplot(data = iris_setosa['sepalwidth'],  kde = False, label = 'Iris setosa', color = 'yellow')
+    plt.xlabel("Sepal Width (cm)", fontdict = font2)
     plt.ylabel("Frequency", fontdict = font2)
+    plt.title("Histogram Plot of Sepal Width by Flower Species", fontdict = font1) 
     plt.grid(color = 'grey', ls = '--', lw = 0.5) 
     plt.legend(loc='upper right')
-    plt.savefig("sepal_length_histogram_2")
-histogram_sepal_length2()
-#sns.histplot(data=penguins, x="flipper_length_mm", hue="species")
+    plt.savefig("sepal_width_histogram")
+    plt.show()
 
+def histogram_petal_length(): 
+    sns.histplot(data = iris_virginica['petallength'], kde = False, label = 'Iris virginica', color = 'red') # https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn [14]
+    sns.histplot(data = iris_versicolor['petallength'], kde = False, label = 'Iris versicolor', color = 'skyblue')
+    sns.histplot(data = iris_setosa['petallength'],  kde = False, label = 'Iris setosa', color = 'yellow')
+    plt.xlabel("Petal Length (cm)", fontdict = font2)
+    plt.ylabel("Frequency", fontdict = font2)
+    plt.title("Histogram Plot of Petal Length by Flower Species", fontdict = font1) 
+    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
+    plt.legend(loc='upper right')
+    plt.savefig("petal_length_histogram")
+    plt.show()
+
+def histogram_petal_width():
+    sns.histplot(data = iris_virginica['petalwidth'], kde = False, label = 'Iris virginica', color = 'red') # https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn [14]
+    sns.histplot(data = iris_versicolor['petalwidth'], kde = False, label = 'Iris versicolor', color = 'skyblue')
+    sns.histplot(data = iris_setosa['petalwidth'],  kde = False, label = 'Iris setosa', color = 'yellow')
+    plt.xlabel("Petal Width (cm)", fontdict = font2)
+    plt.ylabel("Frequency", fontdict = font2)
+    plt.title("Histogram Plot of Petal Width by Flower Species", fontdict = font1) 
+    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
+    plt.legend(loc='upper right')
+    plt.savefig("petal_width_histogram")
+    plt.show()
+
+histogram_sepal_length() 
+histogram_sepal_width() 
+histogram_petal_length()
+histogram_petal_width()
 
 # https://datahub.io/machine-learning/iris data set source on 17/04/2021
 # https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas [2] pandas 19/04/2021
@@ -80,3 +109,4 @@ histogram_sepal_length2()
 # https://seaborn.pydata.org/ seaborn [11] 17/04/2021
 # https://pandas.pydata.org/docs/getting_started/intro_tutorials/03_subset_data.html grouping the variables [12] 24/04/2021
 # https://datavizpyr.com/overlapping-histograms-with-matplotlib-in-python/  [13]
+# https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn [14]
