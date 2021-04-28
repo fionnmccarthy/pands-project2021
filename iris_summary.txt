@@ -40,8 +40,8 @@ freq             50
 
 The number of records for each class can be seen below:
 Iris-setosa        50
-Iris-virginica     50
 Iris-versicolor    50
+Iris-virginica     50
 Name: class, dtype: int64
 
 

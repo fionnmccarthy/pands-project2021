@@ -91,10 +91,67 @@ def histogram_petal_width():
     plt.savefig("petal_width_histogram")
     plt.show()
 
+# executing the fuctions to plot the scatterplots
 histogram_sepal_length() 
 histogram_sepal_width() 
 histogram_petal_length()
 histogram_petal_width()
+
+# https://seaborn.pydata.org/generated/seaborn.scatterplot.html [15]
+def scatterplot_petal():
+    sns.scatterplot(data = irisdata, x = "petallength", y = "petalwidth", hue = "class", palette = "deep")
+    plt.xlabel("Petal Length (cm)", fontdict = font2)
+    plt.ylabel("Petal Width (cm)", fontdict = font2)
+    plt.title("Scatterplot of Petal Length and Petal Width by Flower Species", fontdict = font1) 
+    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
+    plt.legend(loc='upper left')
+    plt.savefig("scatterplot_petal")
+    plt.show()
+
+def scatterplot_sepal():
+    sns.scatterplot(data = irisdata, x = "sepallength", y = "sepalwidth", hue = "class", palette = "deep")
+    plt.xlabel("Sepal Length (cm)", fontdict = font2)
+    plt.ylabel("Sepal Width (cm)", fontdict = font2)
+    plt.title("Scatterplot of Sepal Length and Sepal Width by Flower Species", fontdict = font1) 
+    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
+    plt.legend(loc='upper left')
+    plt.savefig("scatterplot_sepal")
+    plt.show()
+
+def scatterplot_petallength_sepallength():
+    sns.scatterplot(data = irisdata, x = "petallength", y = "sepallength", hue = "class", palette = "deep")
+    plt.xlabel("Petal Length (cm)", fontdict = font2)
+    plt.ylabel("Sepal Length (cm)", fontdict = font2)
+    plt.title("Scatterplot of Petal Length and Sepal Length by Flower Species", fontdict = font1) 
+    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
+    plt.legend(loc='upper left')
+    plt.savefig("scatterplot_petallength_sepallength")
+    plt.show()
+
+def scatterplot_petalwidth_sepalwidth():
+    sns.scatterplot(data = irisdata, x = "petalwidth", y = "sepalwidth", hue = "class", palette = "deep")
+    plt.xlabel("Petal Width (cm)", fontdict = font2)
+    plt.ylabel("Sepal Width (cm)", fontdict = font2)
+    plt.title("Scatterplot of Petal Width and Sepal Width by Flower Species", fontdict = font1) 
+    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
+    plt.legend(loc='upper right')
+    plt.savefig("scatterplot_petalwidth_sepalwidth")
+    plt.show()
+
+# executing the fuctions to plot the scatterplots
+scatterplot_petal()
+scatterplot_sepal()
+scatterplot_petallength_sepallength()
+scatterplot_petalwidth_sepalwidth()
+
+# Pair plots were used in order to compare scatterplots of all teh possibloe varaibles
+# https://towardsdatascience.com/visualizing-data-with-pair-plots-in-python-f228cf529166 [16]
+def iris_pairplot():
+    sns.pairplot(data = irisdata, hue = "class", palette = "deep", kind = "scatter")
+    plt.savefig("iris_pairplot")
+    plt.show()
+
+iris_pairplot()
 
 # https://datahub.io/machine-learning/iris data set source on 17/04/2021
 # https://www.kaggle.com/kashnitsky/topic-1-exploratory-data-analysis-with-pandas [2] pandas 19/04/2021
@@ -110,3 +167,5 @@ histogram_petal_width()
 # https://pandas.pydata.org/docs/getting_started/intro_tutorials/03_subset_data.html grouping the variables [12] 24/04/2021
 # https://datavizpyr.com/overlapping-histograms-with-matplotlib-in-python/  [13]
 # https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn [14]
+# https://seaborn.pydata.org/generated/seaborn.scatterplot.html [15]
+# https://towardsdatascience.com/visualizing-data-with-pair-plots-in-python-f228cf529166 [16]
