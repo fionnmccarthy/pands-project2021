@@ -31,16 +31,16 @@ max           7.90        4.40         6.90        2.50
 
 
 The statistics on the non-numeric (flower class) data can be seen below:
-              class
-count           150
-unique            3
-top     Iris-setosa
-freq             50
+                  class
+count               150
+unique                3
+top     Iris-versicolor
+freq                 50
 
 
 The number of records for each class can be seen below:
-Iris-setosa        50
 Iris-versicolor    50
+Iris-setosa        50
 Iris-virginica     50
 Name: class, dtype: int64
 
