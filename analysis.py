@@ -30,8 +30,8 @@ print("Below shows a summary of each of the variables grouped by the flower clas
 print(irisdata.groupby(['class']).describe(), file = iris_summary_file) # [3] group data by flower class and summarize
 
 
-font1 = {'family':'serif','color':'darkblue','size':15} 
-font2 = {'family':'serif','color':'darkred','size':12} 
+font1 = {'family':'serif','color':'darkblue','size':14} 
+font2 = {'family':'serif','color':'lightblue','size':12} 
 
 
 #For plotting the data I will group it into each flower class
@@ -44,9 +44,6 @@ sns.set(style="darkgrid") # sns.set_theme sts the backround colour of the grid
 # Histograms of Data
 # https://datavizpyr.com/overlapping-histograms-with-matplotlib-in-python/ [13]
 #sepal_length_histogram, axes = plt.subplots(figsize=(10,8))
-
-
-
 def histogram_plot(p1, p2, p3): # I Will create a histogram 
     sns.histplot(data = iris_virginica[p1], kde = False, label = 'Iris virginica', color = 'red') # https://www.python-graph-gallery.com/25-histogram-with-several-variables-seaborn [14]
     sns.histplot(data = iris_versicolor[p1], kde = False, label = 'Iris versicolor', color = 'skyblue')
@@ -66,56 +63,25 @@ def histograms():
     histogram_plot('petalwidth', "Petal Width", "petal_width_histogram")
 
 
-#histogram_plot('sepallength', "Sepal Length", "sepal_length_histogram")
-
-
 
 # https://seaborn.pydata.org/generated/seaborn.scatterplot.html [15]
-def scatterplot_petal():
-    sns.scatterplot(data = irisdata, x = "petallength", y = "petalwidth", hue = "class", palette = "deep")
-    plt.xlabel("Petal Length (cm)", fontdict = font2)
-    plt.ylabel("Petal Width (cm)", fontdict = font2)
-    plt.title("Scatterplot of Petal Length and Petal Width by Flower Species", fontdict = font1) 
+def scatterplot_petal(p1, p2, p3, p4, p5):
+    sns.scatterplot(data = irisdata, x = p1, y = p2, hue = "class", palette = "deep")
+    plt.xlabel(p3, fontdict = font2)
+    plt.ylabel(p4, fontdict = font2)
+    plt.title("Scatterplot of " + p3 +" and " + p4 + " by Flower Species", fontdict = font1) 
     plt.grid(color = 'grey', ls = '--', lw = 0.5) 
     plt.legend(loc='upper left')
-    plt.savefig("scatterplot_petal")
+    plt.savefig(p5)
     plt.show()
 
-def scatterplot_sepal():
-    sns.scatterplot(data = irisdata, x = "sepallength", y = "sepalwidth", hue = "class", palette = "deep")
-    plt.xlabel("Sepal Length (cm)", fontdict = font2)
-    plt.ylabel("Sepal Width (cm)", fontdict = font2)
-    plt.title("Scatterplot of Sepal Length and Sepal Width by Flower Species", fontdict = font1) 
-    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
-    plt.legend(loc='upper left')
-    plt.savefig("scatterplot_sepal")
-    plt.show()
+def scatterplots():
+    scatterplot_petal("petallength", "petalwidth", "Petal Length", "Petal Width", "scatterplot_petal")
+    scatterplot_petal("sepallength", "sepalwidth", "Sepal Length", "Sepal Width", "scatterplot_sepal")
+    scatterplot_petal("petallength", "sepallength", "Petal Length", "Sepal Length", "scatterplot_petallength_sepallength")
+    scatterplot_petal("petalwidth", "sepalwidth", "Petal Width", "Sepal Width", "scatterplot_petalwidth_sepalwidth")
 
-def scatterplot_petallength_sepallength():
-    sns.scatterplot(data = irisdata, x = "petallength", y = "sepallength", hue = "class", palette = "deep")
-    plt.xlabel("Petal Length (cm)", fontdict = font2)
-    plt.ylabel("Sepal Length (cm)", fontdict = font2)
-    plt.title("Scatterplot of Petal Length and Sepal Length by Flower Species", fontdict = font1) 
-    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
-    plt.legend(loc='upper left')
-    plt.savefig("scatterplot_petallength_sepallength")
-    plt.show()
 
-def scatterplot_petalwidth_sepalwidth():
-    sns.scatterplot(data = irisdata, x = "petalwidth", y = "sepalwidth", hue = "class", palette = "deep")
-    plt.xlabel("Petal Width (cm)", fontdict = font2)
-    plt.ylabel("Sepal Width (cm)", fontdict = font2)
-    plt.title("Scatterplot of Petal Width and Sepal Width by Flower Species", fontdict = font1) 
-    plt.grid(color = 'grey', ls = '--', lw = 0.5) 
-    plt.legend(loc='upper right')
-    plt.savefig("scatterplot_petalwidth_sepalwidth")
-    plt.show()
-
-# executing the fuctions to plot the scatterplots
-scatterplot_petal()
-scatterplot_sepal()
-scatterplot_petallength_sepallength()
-scatterplot_petalwidth_sepalwidth()
 
 # Pair plots were used in order to compare scatterplots of all teh possibloe varaibles
 # https://towardsdatascience.com/visualizing-data-with-pair-plots-in-python-f228cf529166 [16]
@@ -124,6 +90,9 @@ def iris_pairplot():
     plt.savefig("iris_pairplot")
     plt.show()
 
+#Executing the functions
+histograms()
+scatterplots()
 iris_pairplot()
 
 # https://datahub.io/machine-learning/iris data set source on 17/04/2021
