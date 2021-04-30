@@ -10,11 +10,12 @@ import seaborn as sns # used for visualisations and ivestigating random distribu
 
 
 irisdata = pd.read_csv('iris_data.csv')
+
 pd.set_option("display.precision",2) # set figures so be returned to two decimal places
 
 
 # Below is the Summary output written to the iris_summary_file.txt file
-iris_summary_file = open("iris_summary.txt","w") # Opened and create dtext file iris_summary.txt for writing 
+iris_summary_file = open("iris_summary.txt","w") # Opened and created text file iris_summary.txt for writing 
 print("This file is displaying the summary statistics for the Iris dataset.", file = iris_summary_file)
 print ("\n", file = iris_summary_file) #line break
 
@@ -23,7 +24,7 @@ print(irisdata, file = iris_summary_file)
 print ("\n", file = iris_summary_file) #line break
 
 print("The describe() function shows the summary statistics of the numeric data below:", file = iris_summary_file)
-print(irisdata.describe(), file = iris_summary_file) # descibe shows count, mean, standard deviation, minimum, median, interquartile range [2]
+print(irisdata.describe(), file = iris_summary_file) # describe() shows count, mean, standard deviation, minimum, median, interquartile range [2]
 print ("\n", file = iris_summary_file) #line break
 
 print("The statistics on the non-numeric (flower class) data can be seen below:", file = iris_summary_file)
@@ -74,7 +75,7 @@ def histogram_plot(p1, p2, p3):
 
 # Defining execution of histograms in the below function and passing in values for p1, p2, p3
 def histograms():
-    histogram_plot('sepallength', "Sepal Length", "sepal_length_histogram") 
+    histogram_plot('sepallength', "Sepal Length", "sepal_length_histogram") # the parameters are passed in as seen here and below
     histogram_plot('sepalwidth', "Sepal Width", "sepal_width_histogram")
     histogram_plot('petallength', "Petal Length", "petal_length_histogram")
     histogram_plot('petalwidth', "Petal Width", "petal_width_histogram")
@@ -109,7 +110,6 @@ def iris_pairplot():
     sns.pairplot(data = irisdata, hue = "class", palette = "deep", kind = "scatter")
     plt.savefig("iris_pairplot")
     plt.show()
-
 
 
 #Executing the functions
