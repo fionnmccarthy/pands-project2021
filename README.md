@@ -158,21 +158,32 @@ The outputs of four of these plots can be seen below.
 ![xplotoutput](scatterplot_petallength_sepallength.png)
 
 ![xplotoutput](scatterplot_petalwidth_sepalwidth.png)
----
+
+### Pairplots ###
+
+
+Pairplots were used to show the scatterplots of all variables with eachother in the code below: 
+
+```python
+def iris_pairplot():
+    sns.pairplot(data = irisdata, hue = "class", palette = "deep", kind = "scatter")
+    plt.savefig("iris_pairplot")
+    plt.show()
+```
+The output can be seen below: 
+
+![xplotoutput](iris_pairplot.png)
 
 
 
-## Results ##
+Below shows how all plots were executed. 
 
 
-
----
-
-
-
-## Conclusions ##
-
-
+```python
+histograms()
+scatterplots()
+iris_pairplot()
+```
 
 ---
 
